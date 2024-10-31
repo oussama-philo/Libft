@@ -15,19 +15,23 @@
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned char	target;
+	int				i;
+	const char		*ptr;
 
 	target = (unsigned char)c;
-	while (*s)
+	ptr = s;
+	i = 0;
+	while (*ptr)
 	{
-		if (*s == target)
+		if (*ptr == target)
 		{
-			return (s);
+			return ((char *)ptr);
 		}
-		s++;
+		ptr++;
 	}
-	if (*s == target)
+	if (*ptr == target)
 	{
-		return (s);
+		return ((char *)ptr);
 	}
 	return (NULL);
 }

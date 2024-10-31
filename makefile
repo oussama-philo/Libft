@@ -2,7 +2,7 @@ NAME = libft.a
 
 CC = gcc
 
-CFLAG = -Wall -Wextra -Werror -I
+CFLAG = -Wall -Wextra -Werror -I.
 
 SRCS = 	ft_isalpha.c \
 		ft_isdigit.c \
@@ -63,14 +63,14 @@ ${NAME}: ${OBJS}
 all: ${NAME}
 
 bonus: ${OBJS_BONUS}
-	@ ar rc ${NAME} ${OBJS_BONUS}
+	@ ar rcs ${NAME} ${OBJS_BONUS}
 
 clean:
-	@ rm -f ${OBJS}
+	@ rm -f ${OBJS} ${OBJS_BONUS}
 
 fclean: clean
 	@ rm -f ${NAME}
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, bonus

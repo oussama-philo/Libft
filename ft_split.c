@@ -53,14 +53,12 @@ static char	*get_next_word(const char **s, char c)
 	if (!word)
 		return (NULL);
 	ft_memcpy(word, start, length);
-	word[length] = '\0';
 	return (word);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int			i;
-	int			j;
 	const char	*ptr;
 	int			word_count;
 	char		**result;
@@ -68,10 +66,11 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	word_count = count_words(s, c);
-	**result = malloc((word_count + 1) * sizeof(char *));
+	result = malloc((word_count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
 	ptr = s;
+	i = 0;
 	while (i < word_count)
 	{
 		result[i] = get_next_word(&ptr, c);

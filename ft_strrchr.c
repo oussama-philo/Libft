@@ -29,7 +29,7 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	if (target == '\0')
 	{
-		return (s);
+		return ((char *)s);
 	}
-	return (last_occurrence);
+	return ((char *)last_occurrence);
 }
