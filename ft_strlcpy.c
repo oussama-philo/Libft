@@ -18,16 +18,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	index;
 
 	total_len = ft_strlen(src);
-	index = 0;
-	if (size == 0)
+	if (!dst || !src)
 	{
 		return (total_len);
 	}
-	while (index < size - 1 && src[index] != '\0')
+	index = 0;
+	if (size > 0)
 	{
-		dst[index] = src[index];
-		index++;
+		while (index < size - 1 && src[index] != '\0')
+		{
+			dst[index] = src[index];
+			index++;
+		}
+		dst[index] = '\0';
 	}
-	dst[size - 1] = '\0';
 	return (total_len);
 }

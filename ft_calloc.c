@@ -17,16 +17,10 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	void	*ptr;
 	size_t	total_n;
 
-	if (nmemb != 0 && size > (size_t)-1 / nmemb)
-	{
-		return (NULL);
-	}
 	total_n = size * nmemb;
 	ptr = malloc(total_n);
 	if (ptr == NULL)
-	{
 		return (NULL);
-	}
 	ft_memset(ptr, 0, total_n);
 	return (ptr);
 }

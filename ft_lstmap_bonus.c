@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 18:36:29 by olachhab          #+#    #+#             */
-/*   Updated: 2024/11/02 19:59:57 by olachhab         ###   ########.fr       */
+/*   Created: 2024/10/30 15:17:08 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/03 14:35:43 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	size_t	total_len;
-	char	*str_total;
+	t_list	*new_list;
+	t_list	*new_node;
 
-	if (!s1 && !s2)
+	if (!lst || !f || !del)
 	{
 		return (NULL);
 	}
-	if (!s1)
+	new_list = NULL;
+	while (lst)
 	{
-		return (ft_strdup(s2));
+		new_node = ft_lstnew(f(lst->content));
+		if (!new_node)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_node);
+		lst = lst->next;
 	}
-	if (!s2)
-	{
-		return (ft_strdup(s1));
-	}
-	total_len = ft_strlen(s1) + ft_strlen(s2);
-	str_total = ft_calloc((total_len + 1), sizeof(char));
-	if (!str_total)
-	{
-		return (NULL);
-	}
-	ft_memcpy(str_total, s1, ft_strlen(s1));
-	ft_memcpy(str_total + ft_strlen(s1), s2, ft_strlen(s2));
-	return (str_total);
+	return (new_list);
 }

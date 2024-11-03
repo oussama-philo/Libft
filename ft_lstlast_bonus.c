@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olachhab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 16:48:34 by olachhab          #+#    #+#             */
-/*   Updated: 2024/10/22 16:48:38 by olachhab         ###   ########.fr       */
+/*   Created: 2024/10/28 21:17:11 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/03 14:35:40 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	const unsigned char	*s;
-	unsigned char		*d;
-	size_t				i;
+	t_list	*tmp;
 
-	if (!dest || !src)
+	if (lst == NULL)
 	{
-		return (dest);
+		return (NULL);
 	}
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	i = 0;
-	while (i < n)
+	tmp = lst;
+	while (tmp->next != NULL)
 	{
-		d[i] = s[i];
-		i++;
+		tmp = tmp->next;
 	}
-	return (dest);
+	return (tmp);
 }

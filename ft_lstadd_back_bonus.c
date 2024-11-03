@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olachhab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 16:48:34 by olachhab          #+#    #+#             */
-/*   Updated: 2024/10/22 16:48:38 by olachhab         ###   ########.fr       */
+/*   Created: 2024/10/28 21:17:29 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/03 14:35:22 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	const unsigned char	*s;
-	unsigned char		*d;
-	size_t				i;
+	t_list	*current_node;
 
-	if (!dest || !src)
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
 	{
-		return (dest);
+		*lst = new;
 	}
-	s = (const unsigned char *)src;
-	d = (unsigned char *)dest;
-	i = 0;
-	while (i < n)
+	else
 	{
-		d[i] = s[i];
-		i++;
+		current_node = *lst;
+		while (current_node->next != NULL)
+		{
+			current_node = current_node->next;
+		}
+		current_node->next = new;
 	}
-	return (dest);
 }

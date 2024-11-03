@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 17:11:34 by olachhab          #+#    #+#             */
-/*   Updated: 2024/11/02 19:58:13 by olachhab         ###   ########.fr       */
+/*   Created: 2024/10/28 21:16:59 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/03 14:35:50 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+int	ft_lstsize(t_list *lst)
 {
-	char	*reserve;
-	int		len;
+	int		count;
+	t_list	*current_node;
 
-	len = ft_strlen(src);
-	reserve = (char *)ft_calloc(len + 1, sizeof(char));
-	if (reserve == NULL)
-		return (NULL);
-	ft_memcpy(reserve, src, len);
-	return (reserve);
+	current_node = lst;
+	count = 0;
+	while (current_node != NULL)
+	{
+		count++;
+		current_node = current_node->next;
+	}
+	return (count);
 }

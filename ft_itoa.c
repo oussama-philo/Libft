@@ -95,7 +95,8 @@ char	*ft_itoa(int n)
 		result = malloc(12 * sizeof(char));
 		if (!result)
 			return (NULL);
-		return ("-2147483648");
+		ft_memcpy(result, "-2147483648", 12);
+		return (result);
 	}
 	total_len = calcul_len(n) + 1;
 	result = ft_allocate(total_len, n);

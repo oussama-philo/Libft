@@ -15,12 +15,10 @@
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned char	target;
-	int				i;
 	const char		*ptr;
 
 	target = (unsigned char)c;
 	ptr = s;
-	i = 0;
 	while (*ptr)
 	{
 		if (*ptr == target)

@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 18:36:29 by olachhab          #+#    #+#             */
-/*   Updated: 2024/11/02 19:59:57 by olachhab         ###   ########.fr       */
+/*   Created: 2024/10/28 21:16:31 by olachhab          #+#    #+#             */
+/*   Updated: 2024/11/03 14:35:46 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	total_len;
-	char	*str_total;
+	t_list	*new_node;
 
-	if (!s1 && !s2)
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
 	{
 		return (NULL);
 	}
-	if (!s1)
-	{
-		return (ft_strdup(s2));
-	}
-	if (!s2)
-	{
-		return (ft_strdup(s1));
-	}
-	total_len = ft_strlen(s1) + ft_strlen(s2);
-	str_total = ft_calloc((total_len + 1), sizeof(char));
-	if (!str_total)
-	{
-		return (NULL);
-	}
-	ft_memcpy(str_total, s1, ft_strlen(s1));
-	ft_memcpy(str_total + ft_strlen(s1), s2, ft_strlen(s2));
-	return (str_total);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }
