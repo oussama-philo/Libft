@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olachhab <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:39:18 by olachhab          #+#    #+#             */
-/*   Updated: 2024/10/26 14:39:20 by olachhab         ###   ########.fr       */
+/*   Updated: 2024/11/03 15:46:27 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static char	*ft_allocate(int size, int nb)
 
 	i = 0;
 	flag_sign = 0;
-	str = malloc(size * sizeof(char));
+	str = (char *)malloc(size * sizeof(char));
 	if (!str)
 		return (NULL);
 	if (nb < 0)
@@ -83,7 +83,7 @@ char	*ft_itoa(int n)
 
 	if (n == 0)
 	{
-		result = malloc(2 * sizeof(char));
+		result = (char *)malloc(2 * sizeof(char));
 		if (!result)
 			return (NULL);
 		result[0] = '0';
@@ -92,7 +92,7 @@ char	*ft_itoa(int n)
 	}
 	if (n == -2147483648)
 	{
-		result = malloc(12 * sizeof(char));
+		result = (char *)malloc(12 * sizeof(char));
 		if (!result)
 			return (NULL);
 		ft_memcpy(result, "-2147483648", 12);
