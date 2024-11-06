@@ -31,10 +31,6 @@ all: ${NAME}
 .c.o:
 	${CC} ${CFLAGS} -c $< -o $@
 
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BONUS_SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS) ${OBJS_BONUS}
-
 ${NAME}: ${OBJS}
 	@ ar rcs ${NAME} ${OBJS}
 
