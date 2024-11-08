@@ -6,7 +6,7 @@
 /*   By: olachhab <olachhab@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:12:06 by olachhab          #+#    #+#             */
-/*   Updated: 2024/11/06 12:15:02 by olachhab         ###   ########.fr       */
+/*   Updated: 2024/11/06 15:26:02 by olachhab         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	index;
 
 	if (src == NULL)
-		return ((size_t)NULL);
+		return (0);
 	total_len = ft_strlen(src);
 	if (size > 0 && dst)
 	{
